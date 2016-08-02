@@ -11,14 +11,23 @@
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".AnotherActivity" >
-            <inent-filter>
-                <action android:name="android.intent.action.ACTION_START"/>
+            <intent-filter>
+                <action android:name="ACTION_START" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT2" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ThirdActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-            </inent-filter>
+                <data android:scheme="http"/>
+            </intent-filter>
         </activity>
     </application>
 
