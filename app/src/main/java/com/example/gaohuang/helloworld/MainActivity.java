@@ -3,7 +3,7 @@ package com.example.gaohuang.helloworld;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -31,7 +31,8 @@ public class MainActivity extends Activity {
 //                finish();
 
 //                使用显示的方法打开一个activity
-//                Intent intent = new Intent(MainActivity.this, AnotherActivity.class);
+                Intent intent = new Intent(MainActivity.this, AnotherActivity.class);
+//                intent.putExtra("maindata", "mainactivity");
 
 //                使用隐式的方法打开一个activity
 //                Intent intent = new Intent("ACTION_START");
@@ -41,12 +42,58 @@ public class MainActivity extends Activity {
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setData(Uri.parse("http://www.baidu.com"));
 
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:10086"));
-                startActivity(intent);
+//                打开拨号
+//                Intent intent = new Intent(Intent.ACTION_DIAL);
+//                intent.setData(Uri.parse("tel:10086"));
+//                startActivity(intent);
+
+//                希望从下一个活动返回的时候携带数据
+                startActivityForResult(intent, 1);
             }
         });
         Log.d("xiaota", "init.................");
+    }
+
+    public void onStart(){
+        super.onStart();
+        Log.d("start", "start");
+    }
+
+    public void onResume(){
+        super.onResume();
+        Log.d("resume", "resume");
+    }
+
+    public void onPause(){
+        super.onPause();
+        Log.d("pause", "pause");
+    }
+
+    public void onStop(){
+        super.onStop();
+        Log.d("stop", "stop");
+    }
+
+    public void onDestroy(){
+        super.onDestroy();
+        Log.d("destroy", "destroy");
+    }
+
+    public void onRestart(){
+        super.onRestart();
+        Log.d("restart", "restart");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+            case 1:
+                if(RESULT_OK == resultCode){
+                    String temStr = data.getStringExtra("data");
+                    Log.d("mainactivity", temStr);
+                }
+                break;
+        }
     }
 
     @Override

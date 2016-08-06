@@ -1,33 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gaohuang.helloworld" >
+    package="com.example.gaohuang.helloworld">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".MainActivity" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+
+            <!-- <intent-filter> -->
+
+
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".AnotherActivity">
+            <intent-filter>
+                <action android:name="ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT2" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ThirdActivity"
+            android:launchMode="singleTask">
+
+            <!-- <intent-filter> -->
+
+
+            <!-- &lt;!&ndash; <action android:name="android.intent.action.VIEW" /> &ndash;&gt; -->
+
+
+            <!-- &lt;!&ndash; <category android:name="android.intent.category.DEFAULT" /> &ndash;&gt; -->
+
+
+            <!-- &lt;!&ndash; <data android:scheme="http" /> &ndash;&gt; -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".DialogActivity"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".ActivityOne"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AnotherActivity" >
-            <intent-filter>
-                <action android:name="ACTION_START" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.DEFAULT2" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".ThirdActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="http"/>
-            </intent-filter>
+        <activity
+            android:name=".ActivityTwo"
+            android:launchMode="singleInstance" />
+        <activity android:name=".ActivityThree" />
+        <activity android:name=".BaseActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
     </application>
 
